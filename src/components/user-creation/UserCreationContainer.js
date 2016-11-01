@@ -3,7 +3,10 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import UserDetailsForm from './UserDetailsForm';
+import Applications from '../applications/Applications';
+
 import * as userActions from '../../actions/user-details.actions';
+import * as visibilityActions from '../../actions/visibility.actions';
 
 const UserCreationContainer = (props) => {
   return (
@@ -12,7 +15,13 @@ const UserCreationContainer = (props) => {
         props.userDetailsShown &&
         <UserDetailsForm heading="New User"
                          userDetails={props.userDetails}
-                         updateUserDetails={props.actions.updateUserDetails} />
+                         updateUserDetails={props.actions.updateUserDetails}
+                         toggleUserDetails={props.actions.toggleUserDetails}
+                         toggleApplications={props.actions.toggleApplications} />
+      }
+      {
+        props.applicationsShown &&
+        <Applications heading="Applications" />
       }
     </div>
   );
@@ -26,11 +35,12 @@ UserCreationContainer.propTypes = {
 
 const mapStateToProps = (state) => ({
   userDetails: state.userDetails,
-  userDetailsShown: state.visibility.userDetailsShown
+  userDetailsShown: state.visibility.userDetailsShown,
+  applicationsShown: state.visibility.applicationsShown
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators(userActions, dispatch)
+  actions: bindActionCreators({ ...userActions, ...visibilityActions }, dispatch)
 });
 
 export default connect(

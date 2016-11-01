@@ -17,6 +17,8 @@ class UserDetailsForm extends Component {
   }
 
   onNext() {
+    this.props.toggleUserDetails();
+    this.props.toggleApplications();
     console.log('onNext', this.props.userDetails);
   }
 
@@ -47,7 +49,9 @@ class UserDetailsForm extends Component {
 UserDetailsForm.propTypes = {
   heading: PropTypes.string.isRequired,
   userDetails: PropTypes.object.isRequired,
-  updateUserDetails: PropTypes.func.isRequired
+  updateUserDetails: PropTypes.func.isRequired,
+  toggleUserDetails: PropTypes.func.isRequired,
+  toggleApplications: PropTypes.func.isRequired
 };
 
 export default UserDetailsForm;

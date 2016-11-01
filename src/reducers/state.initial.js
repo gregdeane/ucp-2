@@ -5,6 +5,7 @@ export default {
     email: ''
   },
   visibility: {
-    userDetailsShown: true
+    userDetailsShown: true,
+    applicationsShown: false
   }
 };

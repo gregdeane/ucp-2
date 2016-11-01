@@ -10,6 +10,12 @@ const visibility = (state = initialState.visibility, action) => {
         userDetailsShown: !state.userDetailsShown
       };
 
+    case types.TOGGLE_APPLICATIONS:
+      return {
+        ...state,
+        applicationsShown: !state.applicationsShown
+      };
+
     default:
       return state;
   }
