@@ -1,13 +1,20 @@
-import * as types from '../constants/user-info.actions';
+import * as types from '../constants/user-info.action.types';
 
 const initialState = {
-  details: {},
+  details: {
+    firstName: '',
+    lastName: '',
+    email: ''
+  },
   permissions: {}
 };
 
 const userInfo = (state = initialState, action) => {
   switch (action.type) {
     case types.UPDATE_USER_DETAILS:
+      //console.log('user-info.reducer.js / UPDATE_USER_DETAILS / state, action', state, action);
+      console.log('state', state);
+      console.log('action', action);
       return {
         ...state,
         details: action.details
