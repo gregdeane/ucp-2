@@ -23,6 +23,7 @@ class UserDetailsForm extends Component {
   render() {
     return (
       <div className="dc-column">
+        <h2>{this.props.heading}</h2>
         <TextField name="firstName"
                    label="First Name"
                    placeholder="Enter First Name"

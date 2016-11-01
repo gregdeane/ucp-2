@@ -4,5 +4,7 @@ export default {
     lastName: '',
     email: ''
   },
-  permissions: {}
+  visibility: {
+    userDetailsShown: true
+  }
 };
