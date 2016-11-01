@@ -11,3 +11,11 @@ export const toggleApplications = () => {
     type: types.TOGGLE_APPLICATIONS
   };
 };
+
+export const toggleApplication = (settings, id) => {
+  return {
+    type: types.TOGGLE_APPLICATION,
+    settings,
+    id
+  };
+};

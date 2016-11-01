@@ -19,7 +19,7 @@ class UserDetailsForm extends Component {
   onNext() {
     this.props.toggleUserDetails();
     this.props.toggleApplications();
-    console.log('onNext', this.props.userDetails);
+    console.log('UserDetailsForm / onNext', this.props.userDetails);
   }
 
   render() {

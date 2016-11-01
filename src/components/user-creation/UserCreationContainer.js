@@ -21,7 +21,9 @@ const UserCreationContainer = (props) => {
       }
       {
         props.applicationsShown &&
-        <Applications heading="Applications" />
+        <Applications heading="Applications"
+                      applicationShown={props.applicationShown}
+                      toggleApplication={props.actions.toggleApplication} />
       }
     </div>
   );
@@ -36,7 +38,8 @@ UserCreationContainer.propTypes = {
 const mapStateToProps = (state) => ({
   userDetails: state.userDetails,
   userDetailsShown: state.visibility.userDetailsShown,
-  applicationsShown: state.visibility.applicationsShown
+  applicationsShown: state.visibility.applicationsShown,
+  applicationShown: state.visibility.applicationShown
 });
 
 const mapDispatchToProps = (dispatch) => ({
