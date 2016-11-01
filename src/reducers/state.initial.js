@@ -6,6 +6,7 @@ export default {
   },
   visibility: {
     userDetailsShown: true,
-    applicationsShown: false
+    applicationsShown: false,
+    applicationShown: {}
   }
 };

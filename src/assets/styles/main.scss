@@ -1,6 +1,8 @@
 @import "breakpoint";
 @import "dress-code";
+@import "accordion";
 @include dc-everything;
+@include dc-accordion-selectors;
 
 .dc-row {
   position: relative;
@@ -13,6 +15,14 @@
 
 .hide {
   display: none;
+}
+
+.dc-accordion__content {
+
+  &--show {
+    display: block;
+  }
+
 }
 
 .temp-border {
