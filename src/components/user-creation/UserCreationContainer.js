@@ -2,14 +2,14 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import UserDetailsForm from './UserDetailsForm';
-import { updateUserDetails } from '../../actions/user-info.actions';
+import { updateUserDetails } from '../../actions/user-details.actions';
 
 const UserCreationContainer = (props) => {
   return (
     <div>
       <h1>User Creation Container</h1>
       <UserDetailsForm heading="Create User"
-                       userInfo={props.userInfo}
+                       userDetails={props.userDetails}
                        updateUserDetails={props.updateUserDetails} />
     </div>
   );
@@ -17,12 +17,12 @@ const UserCreationContainer = (props) => {
 
 UserCreationContainer.propTypes = {
   admins: PropTypes.array.isRequired,
-  userInfo: PropTypes.object,
+  userDetails: PropTypes.object.isRequired,
   updateUserDetails: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
-  userInfo: state.userInfo
+  userDetails: state.userDetails
 });
 
 const mapDispatchToProps = (dispatch) => {

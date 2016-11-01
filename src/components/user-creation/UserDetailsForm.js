@@ -13,11 +13,11 @@ class UserDetailsForm extends Component {
   }
 
   onChange(name, value) {
-    this.props.updateUserDetails(this.props.userInfo.details, name, value);
+    this.props.updateUserDetails(this.props.userDetails, name, value);
   }
 
   onNext() {
-    console.log('onNext');
+    console.log('onNext', this.props.userDetails);
   }
 
   render() {
@@ -26,6 +26,14 @@ class UserDetailsForm extends Component {
         <TextField name="firstName"
                    label="First Name"
                    placeholder="Enter First Name"
+                   onChange={this.onChange} />
+        <TextField name="lastName"
+                   label="Last Name"
+                   placeholder="Enter Last Name"
+                   onChange={this.onChange} />
+        <TextField name="email"
+                   label="Email"
+                   placeholder="Enter Email"
                    onChange={this.onChange} />
         <Button type="submit"
                 value="Next"
@@ -37,7 +45,7 @@ class UserDetailsForm extends Component {
 
 UserDetailsForm.propTypes = {
   heading: PropTypes.string.isRequired,
-  userInfo: PropTypes.object.isRequired,
+  userDetails: PropTypes.object.isRequired,
   updateUserDetails: PropTypes.func.isRequired
 };
 
