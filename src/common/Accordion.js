@@ -23,36 +23,6 @@ const Accordion = (props) => {
                         onClick={props.onClick}>
                   {application.name}
                 </header>
-                {
-                  application.roles &&
-                  <div className={'dc-accordion__content' + (props.applicationShown['a' + application.id] ? ' dc-accordion__content--show' : '')}>
-                    <ul className="applications-list">
-                      {
-                        application.roles &&
-                        application.roles.map(role => {
-                          let perm = props.roles['r' + role.id] || {};
-                          return (
-                            <li key={role.id}
-                                className="applications-list__item">
-                              {role.name}
-                              <div>
-                                <input type="checkbox"
-                                       id={'r' + role.id}
-                                       className="dc-checkbox dc-checkbox--alt"
-                                       data-roleid={role.id}
-                                       data-rolename={role.name}
-                                       checked={perm && perm.status}
-                                       value={perm.value || 'false'}
-                                       onChange={handlePermissionChange} />
-                                <label htmlFor={'r' + role.id} className="dc-label">&nbsp;</label>
-                              </div>
-                            </li>
-                          );
-                        })
-                      }
-                    </ul>
-                  </div>
-                }
               </div>
             );
           });

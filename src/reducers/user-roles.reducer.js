@@ -7,7 +7,7 @@ const userRoles = (state = initialState.roles, action) => {
     case types.ADD_USER_ROLES:
       return {
         ...state,
-        products: action.products
+        roles: action.roles
       };
 
     case types.UPDATE_USER_ROLES:

@@ -13,13 +13,14 @@ import './assets/styles/main.scss';
 // mock data
 import admins from './mock/admins';
 import products from './mock/products';
+import roles from './mock/roles';
 
 let store = createStore(
   rootReducer,
   applyMiddleware(reduxImmutableStateInvariant())
 );
 
-store.dispatch(addUserRoles(products));
+store.dispatch(addUserRoles(roles));
 
 render(
   <Provider store={store}>

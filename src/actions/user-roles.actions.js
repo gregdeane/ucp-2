@@ -1,9 +1,9 @@
 import * as types from '../constants/user-roles.action.types';
 
-export const addUserRoles = (products) => {
+export const addUserRoles = (roles) => {
   return {
     type: types.ADD_USER_ROLES,
-    products
+    roles
   };
 };
 
