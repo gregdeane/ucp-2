@@ -21,12 +21,6 @@ class Applications extends Component {
   }
 
   onPermissionChange(id, rollId, rollName, value, status) {
-    // console.log('onPermissionChange');
-    // console.log('id', id);
-    // console.log('rollId', rollId);
-    // console.log('rollName', rollName);
-    // console.log('status', status);
-    console.log('this.props', this.props);
     this.props.updateUserPermissions(this.props.permissions, id, rollId, rollName, value, status);
   }
 

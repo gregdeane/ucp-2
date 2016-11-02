@@ -10,14 +10,6 @@ const Accordion = (props) => {
     props.onPermissionChange(`r${rollId}`, rollId, rollName, el.value, el.checked);
   };
 
-  // temp randomizer to set defaultChecked to true on some switches
-  // const getDefaultChecked = () => {
-  //   let options = [true, false];
-  //   let selection = Math.floor(Math.random() * options.length);
-  //   console.log(options[selection]);
-  //   return options[selection];
-  // };
-
   return (
     <div className="dc-accordion">
       {
