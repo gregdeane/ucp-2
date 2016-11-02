@@ -30,7 +30,7 @@ const Accordion = (props) => {
                       {
                         application.roles &&
                         application.roles.map(role => {
-                          let perm = props.permissions['r' + role.id] || {};
+                          let perm = props.roles['r' + role.id] || {};
                           return (
                             <li key={role.id}
                                 className="applications-list__item">
@@ -64,7 +64,7 @@ const Accordion = (props) => {
 
 Accordion.propTypes = {
   products: PropTypes.array.isRequired,
-  permissions: PropTypes.object.isRequired,
+  roles: PropTypes.object.isRequired,
   applicationShown: PropTypes.object.isRequired,
   onClick: PropTypes.func.isRequired,
   onPermissionChange: PropTypes.func.isRequired

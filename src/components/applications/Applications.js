@@ -21,7 +21,7 @@ class Applications extends Component {
   }
 
   onPermissionChange(id, rollId, rollName, value, status) {
-    this.props.updateUserPermissions(this.props.permissions, id, rollId, rollName, value, status);
+    this.props.updateUserRoles(this.props.roles, id, rollId, rollName, value, status);
   }
 
   onNext() {
@@ -33,7 +33,7 @@ class Applications extends Component {
       <div className="dc-column applications">
         <h2>{this.props.heading}</h2>
         <Accordion products={this.props.products}
-                   permissions={this.props.permissions}
+                   roles={this.props.roles}
                    applicationShown={this.props.applicationShown}
                    onClick={this.toggleAccordion}
                    onPermissionChange={this.onPermissionChange} />
@@ -48,10 +48,10 @@ class Applications extends Component {
 Applications.propTypes = {
   heading: PropTypes.string.isRequired,
   products: PropTypes.array.isRequired,
-  permissions: PropTypes.object.isRequired,
+  roles: PropTypes.object.isRequired,
   applicationShown: PropTypes.object.isRequired,
   toggleApplication: PropTypes.func.isRequired,
-  updateUserPermissions: PropTypes.func.isRequired
+  updateUserRoles: PropTypes.func.isRequired
 };
 
 export default Applications;

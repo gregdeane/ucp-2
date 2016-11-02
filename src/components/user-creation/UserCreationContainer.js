@@ -6,10 +6,11 @@ import UserDetailsForm from './UserDetailsForm';
 import Applications from '../applications/Applications';
 
 import * as userDetailsActions from '../../actions/user-details.actions';
-import * as userPermissionsActions from '../../actions/user-permissions.actions';
+import * as userRolesActions from '../../actions/user-roles.actions';
 import * as visibilityActions from '../../actions/visibility.actions';
 
 const UserCreationContainer = (props) => {
+  console.log('roles', props.roles);
   return (
     <div className="dc-row dc-block-grid--small-1 dc-block-grid--medium-2 dc-block-grid--large-3">
       {
@@ -24,10 +25,10 @@ const UserCreationContainer = (props) => {
         props.applicationsShown &&
         <Applications heading="Applications"
                       products={props.products}
-                      permissions={props.permissions}
+                      roles={props.roles}
                       applicationShown={props.applicationShown}
                       toggleApplication={props.actions.toggleApplication}
-                      updateUserPermissions={props.actions.updateUserPermissions} />
+                      updateUserRoles={props.actions.updateUserRoles} />
       }
     </div>
   );
@@ -37,13 +38,13 @@ UserCreationContainer.propTypes = {
   admins: PropTypes.array.isRequired,
   products: PropTypes.array.isRequired,
   userDetails: PropTypes.object.isRequired,
-  permissions: PropTypes.object.isRequired,
+  roles: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
   userDetails: state.userDetails,
-  permissions: state.userPermissions,
+  roles: state.userRoles,
   userDetailsShown: state.visibility.userDetailsShown,
   applicationsShown: state.visibility.applicationsShown,
   applicationShown: state.visibility.applicationShown
@@ -52,7 +53,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   actions: bindActionCreators({
     ...userDetailsActions,
-    ...userPermissionsActions,
+    ...userRolesActions,
     ...visibilityActions
   }, dispatch)
 });

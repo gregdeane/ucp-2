@@ -1,10 +1,16 @@
-import * as types from '../constants/user-permissions.action.types';
+import * as types from '../constants/user-roles.action.types';
 
 import initialState from './state.initial';
 
-const userPermissions = (state = initialState.permissions, action) => {
+const userRoles = (state = initialState.roles, action) => {
   switch (action.type) {
-    case types.UPDATE_USER_PERMISSIONS:
+    case types.ADD_USER_ROLES:
+      return {
+        ...state,
+        products: action.products
+      };
+
+    case types.UPDATE_USER_ROLES:
       return {
         ...state,
         [action.id]: {
@@ -20,4 +26,4 @@ const userPermissions = (state = initialState.permissions, action) => {
   }
 };
 
-export default userPermissions;
+export default userRoles;

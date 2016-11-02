@@ -2,12 +2,12 @@ import { combineReducers } from 'redux';
 
 import visibility from './visibility.reducer';
 import userDetails from './user-details.reducer';
-import userPermissions from './user-permissions.reducer';
+import userRoles from './user-roles.reducer';
 
 const rootReducer = combineReducers({
   visibility,
   userDetails,
-  userPermissions
+  userRoles
 });
 
 export default rootReducer;

@@ -6,6 +6,7 @@ import reduxImmutableStateInvariant from 'redux-immutable-state-invariant';
 
 import rootReducer from './reducers';
 import UserCreationContainer from './components/user-creation/UserCreationContainer';
+import { addUserRoles } from './actions/user-roles.actions';
 
 import './assets/styles/main.scss';
 
@@ -17,6 +18,8 @@ let store = createStore(
   rootReducer,
   applyMiddleware(reduxImmutableStateInvariant())
 );
+
+store.dispatch(addUserRoles(products));
 
 render(
   <Provider store={store}>

@@ -18,7 +18,7 @@ export default [
             "name": "Reviewer",
             "minSeniority": 0,
             "moduleId": 1,
-            "permissions": [
+            "roles": [
               {
                 "id": 1,
                 "name": "cms.edit",
@@ -52,7 +52,7 @@ export default [
             "name": "View",
             "minSeniority": 0,
             "moduleId": 2,
-            "permissions": [
+            "roles": [
               {
                 "id": 7,
                 "name": "analytics.view",
@@ -66,7 +66,7 @@ export default [
             "name": "Edit",
             "minSeniority": 0,
             "moduleId": 2,
-            "permissions": [
+            "roles": [
               {
                 "id": 18,
                 "name": "analytics.edit",
@@ -96,7 +96,7 @@ export default [
           "minSeniority": 0,
           "description": "",
           "moduleId": 9,
-          "permissions": [
+          "roles": [
             {
               "id": 31,
               "name": "coplanner.sso-link.read",
@@ -125,7 +125,7 @@ export default [
             "name": "View",
             "minSeniority": 0,
             "moduleId": 4,
-            "permissions": [
+            "roles": [
               {
                 "id": 10,
                 "name": "articles.view",
@@ -139,7 +139,7 @@ export default [
             "name": "Create & edit",
             "minSeniority": 0,
             "moduleId": 4,
-            "permissions": [
+            "roles": [
               {
                 "id": 11,
                 "name": "articles.edit",
@@ -163,7 +163,7 @@ export default [
             "name": "Owner",
             "minSeniority": 0,
             "moduleId": 6,
-            "permissions": [
+            "roles": [
               {
                 "id": 20,
                 "name": "orders.update",
@@ -182,7 +182,7 @@ export default [
             "name": "Super Admin",
             "minSeniority": 0,
             "moduleId": 6,
-            "permissions": [
+            "roles": [
               {
                 "id": 21,
                 "name": "orders.update_all",
@@ -201,7 +201,7 @@ export default [
             "name": "Create",
             "minSeniority": 0,
             "moduleId": 6,
-            "permissions": [
+            "roles": [
               {
                 "id": 19,
                 "name": "orders.create",
@@ -240,7 +240,7 @@ export default [
             "name": "Developer",
             "minSeniority": 0,
             "moduleId": 6,
-            "permissions": [
+            "roles": [
               {
                 "id": 19,
                 "name": "orders.create",
@@ -269,7 +269,7 @@ export default [
             "name": "Management",
             "minSeniority": 100,
             "moduleId": 6,
-            "permissions": [
+            "roles": [
               {
                 "id": 17,
                 "name": "orders.new",
