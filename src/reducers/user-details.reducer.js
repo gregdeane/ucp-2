@@ -2,7 +2,7 @@ import * as types from '../constants/user-details.action.types';
 
 import initialState from './state.initial';
 
-const userInfo = (state = initialState.details, action) => {
+const userDetails = (state = initialState.details, action) => {
   switch (action.type) {
     case types.UPDATE_USER_DETAILS:
       return {
@@ -15,4 +15,4 @@ const userInfo = (state = initialState.details, action) => {
   }
 };
 
-export default userInfo;
+export default userDetails;

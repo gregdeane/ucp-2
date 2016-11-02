@@ -2,12 +2,21 @@ import React, {PropTypes} from 'react';
 
 const Accordion = (props) => {
 
-  // temp randomizer to set defaultChecked to true on some switches
-  const getDefaultChecked = () => {
-    let options = [true, false];
-    let selection = Math.floor(Math.random() * options.length);
-    return options[selection];
+  const handlePermissionChange = (e) => {
+    let el = e.target;
+    let rollId = el.getAttribute('data-roleid');
+    let rollName = el.getAttribute('data-rolename');
+
+    props.onPermissionChange(`r${rollId}`, rollId, rollName, el.value, el.checked);
   };
+
+  // temp randomizer to set defaultChecked to true on some switches
+  // const getDefaultChecked = () => {
+  //   let options = [true, false];
+  //   let selection = Math.floor(Math.random() * options.length);
+  //   console.log(options[selection]);
+  //   return options[selection];
+  // };
 
   return (
     <div className="dc-accordion">
@@ -25,21 +34,25 @@ const Accordion = (props) => {
                 {
                   application.roles &&
                   <div className={'dc-accordion__content' + (props.applicationShown['a' + application.id] ? ' dc-accordion__content--show' : '')}>
-                    <ul className="applications__roles">
+                    <ul className="applications-list">
                       {
                         application.roles &&
                         application.roles.map(role => {
+                          let perm = props.permissions['r' + role.id] || {};
                           return (
-                            <li key={role.id}>
+                            <li key={role.id}
+                                className="applications-list__item">
                               {role.name}
                               <div>
-                                <input type="checkbox" id={'r' + role.id}
+                                <input type="checkbox"
+                                       id={'r' + role.id}
                                        className="dc-checkbox dc-checkbox--alt"
-                                       defaultChecked={getDefaultChecked()} />
-                                <label htmlFor={'r' + role.id}
-                                       className="dc-label">
-                                  Check this
-                                </label>
+                                       data-roleid={role.id}
+                                       data-rolename={role.name}
+                                       checked={perm && perm.status}
+                                       value={perm.value || 'false'}
+                                       onChange={handlePermissionChange} />
+                                <label htmlFor={'r' + role.id} className="dc-label">&nbsp;</label>
                               </div>
                             </li>
                           );
@@ -59,8 +72,10 @@ const Accordion = (props) => {
 
 Accordion.propTypes = {
   products: PropTypes.array.isRequired,
+  permissions: PropTypes.object.isRequired,
   applicationShown: PropTypes.object.isRequired,
-  onClick: PropTypes.func.isRequired
+  onClick: PropTypes.func.isRequired,
+  onPermissionChange: PropTypes.func.isRequired
 };
 
 export default Accordion;

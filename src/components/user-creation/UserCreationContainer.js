@@ -5,7 +5,8 @@ import { bindActionCreators } from 'redux';
 import UserDetailsForm from './UserDetailsForm';
 import Applications from '../applications/Applications';
 
-import * as userActions from '../../actions/user-details.actions';
+import * as userDetailsActions from '../../actions/user-details.actions';
+import * as userPermissionsActions from '../../actions/user-permissions.actions';
 import * as visibilityActions from '../../actions/visibility.actions';
 
 const UserCreationContainer = (props) => {
@@ -23,8 +24,10 @@ const UserCreationContainer = (props) => {
         props.applicationsShown &&
         <Applications heading="Applications"
                       products={props.products}
+                      permissions={props.permissions}
                       applicationShown={props.applicationShown}
-                      toggleApplication={props.actions.toggleApplication} />
+                      toggleApplication={props.actions.toggleApplication}
+                      updateUserPermissions={props.actions.updateUserPermissions} />
       }
     </div>
   );
@@ -34,18 +37,24 @@ UserCreationContainer.propTypes = {
   admins: PropTypes.array.isRequired,
   products: PropTypes.array.isRequired,
   userDetails: PropTypes.object.isRequired,
+  permissions: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 const mapStateToProps = (state) => ({
   userDetails: state.userDetails,
+  permissions: state.userPermissions,
   userDetailsShown: state.visibility.userDetailsShown,
   applicationsShown: state.visibility.applicationsShown,
   applicationShown: state.visibility.applicationShown
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators({ ...userActions, ...visibilityActions }, dispatch)
+  actions: bindActionCreators({
+    ...userDetailsActions,
+    ...userPermissionsActions,
+    ...visibilityActions
+  }, dispatch)
 });
 
 export default connect(

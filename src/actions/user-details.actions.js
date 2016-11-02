@@ -1,9 +1,9 @@
 import * as types from '../constants/user-details.action.types';
 
-export const updateUserDetails = (details, fieldName, value) => {
+export const updateUserDetails = (settings, fieldName, value) => {
   return {
     type: types.UPDATE_USER_DETAILS,
-    details,
+    settings,
     fieldName,
     value
   };
