@@ -22,6 +22,7 @@ const UserCreationContainer = (props) => {
       {
         props.applicationsShown &&
         <Applications heading="Applications"
+                      products={props.products}
                       applicationShown={props.applicationShown}
                       toggleApplication={props.actions.toggleApplication} />
       }
@@ -31,6 +32,7 @@ const UserCreationContainer = (props) => {
 
 UserCreationContainer.propTypes = {
   admins: PropTypes.array.isRequired,
+  products: PropTypes.array.isRequired,
   userDetails: PropTypes.object.isRequired,
   actions: PropTypes.object.isRequired
 };

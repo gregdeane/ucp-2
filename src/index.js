@@ -11,6 +11,7 @@ import './assets/styles/main.scss';
 
 // mock data
 import admins from './mock/admins';
+import products from './mock/products';
 
 let store = createStore(
   rootReducer,
@@ -20,7 +21,7 @@ let store = createStore(
 render(
   <Provider store={store}>
     <div>
-      <UserCreationContainer admins={admins} />
+      <UserCreationContainer admins={admins} products={products} />
     </div>
   </Provider>,
   document.getElementById('app')

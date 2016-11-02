@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 import Button from '../../common/Button';
+import Accordion from '../../common/Accordion';
 
 class Applications extends Component {
 
@@ -21,43 +22,12 @@ class Applications extends Component {
   }
 
   render() {
-    const { applicationShown } = this.props;
-
     return (
       <div className="dc-column">
         <h2>{this.props.heading}</h2>
-        <div className="dc-accordion">
-          <div className="dc-accordion__item">
-            <header className="dc-accordion__header"
-                    htmlFor="a1"
-                    onClick={this.toggleAccordion}>
-              Accordion 1
-            </header>
-            <div className={'dc-accordion__content' + (applicationShown['a1'] ? ' dc-accordion__content--show' : '')}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-            </div>
-          </div>
-          <div className="dc-accordion__item">
-            <header className="dc-accordion__header"
-                    htmlFor="a2"
-                    onClick={this.toggleAccordion}>
-              Accordion 2
-            </header>
-            <div className={'dc-accordion__content' + (applicationShown['a2'] ? ' dc-accordion__content--show' : '')}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-            </div>
-          </div>
-          <div className="dc-accordion__item">
-            <header className="dc-accordion__header"
-                    htmlFor="a3"
-                    onClick={this.toggleAccordion}>
-              Accordion 3
-            </header>
-            <div className={'dc-accordion__content' + (applicationShown['a3'] ? ' dc-accordion__content--show' : '')}>
-              Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.
-            </div>
-          </div>
-        </div>
+        <Accordion products={this.props.products}
+                   applicationShown={this.props.applicationShown}
+                   onClick={this.toggleAccordion} />
         <Button type="submit"
                 value="Next"
                 onClick={this.onNext} />
@@ -68,6 +38,7 @@ class Applications extends Component {
 
 Applications.propTypes = {
   heading: PropTypes.string.isRequired,
+  products: PropTypes.array.isRequired,
   applicationShown: PropTypes.object.isRequired,
   toggleApplication: PropTypes.func.isRequired
 };
