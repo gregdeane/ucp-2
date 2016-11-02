@@ -3,6 +3,8 @@ import React, { Component, PropTypes } from 'react';
 import Button from '../../common/Button';
 import Accordion from '../../common/Accordion';
 
+import './applications.scss';
+
 class Applications extends Component {
 
   constructor(props, context) {
@@ -23,7 +25,7 @@ class Applications extends Component {
 
   render() {
     return (
-      <div className="dc-column">
+      <div className="dc-column applications">
         <h2>{this.props.heading}</h2>
         <Accordion products={this.props.products}
                    applicationShown={this.props.applicationShown}

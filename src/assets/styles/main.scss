@@ -44,20 +44,3 @@
     }
   }
 }
-
-// mobile first
-.applications {
-  position: absolute;
-  display: none;
-  height: 100vh;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-
-@media (min-width: $dc-large-width) {
-  .applications {
-    display: block;
-  }
-}
